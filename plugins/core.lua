@@ -74,4 +74,13 @@ return {
   --     }, { mode = "n", prefix = "<leader>" })
   --   end,
   -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    config = function(plugin, opts)
+      -- plugin.default_config(opts) -- include the default astronvim config that calls the setup call
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      -- print(opts.windo)
+      -- opts.window.position = "right"
+    end,
+  }
 }
