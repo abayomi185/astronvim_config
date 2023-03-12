@@ -76,11 +76,23 @@ return {
   -- },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    config = function(plugin, opts)
-      -- plugin.default_config(opts) -- include the default astronvim config that calls the setup call
-      -- add more custom luasnip configuration such as filetype extend or custom snippets
-      -- print(opts.windo)
-      -- opts.window.position = "right"
+    config = function(_, opts)
+      opts.window = {
+        position = "right",
+        width = 30,
+        mappings = {
+          ["<space>"] = false, -- disable space until we figure out which-key disabling
+          ["[b"] = "prev_source",
+          ["]b"] = "next_source",
+          o = "open",
+          O = "system_open",
+          h = "parent_or_close",
+          l = "child_or_open",
+          Y = "copy_selector",
+        },
+      }
+      -- return opts
+      require("neo-tree").setup(opts)
     end,
   }
 }
